@@ -1,0 +1,33 @@
+<html>
+<body>
+<div id="confirmBox">
+    <div class="message"></div>
+    <span class="yes">Yes</span>
+    <span class="no glyphicon-trash">No</span>
+</div>
+
+<script>
+function doConfirm(msg, yesFn, noFn)
+{
+    var confirmBox = $("#confirmBox");
+    confirmBox.find(".message").text(msg);
+    confirmBox.find(".yes,.no").unbind().click(function()
+    {
+        confirmBox.hide();
+    });
+    confirmBox.find(".yes").click(yesFn);
+    confirmBox.find(".no").click(noFn);
+    confirmBox.show();
+}
+ $('.glyphicon-trash').click(function(){
+  doConfirm("Are you sure?", function yes()
+  {
+      alert('yes');
+  }, function no()
+  {
+      alert('no');
+  });
+ });
+</script>
+</body>
+</html>
